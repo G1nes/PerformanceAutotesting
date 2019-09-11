@@ -9,7 +9,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -21,7 +20,7 @@ public class Main {
     @BeforeClass
         public static void setUp(){
         try {
-            properties.load(new FileInputStream(new File("\"E:PerformanceAutotesting\\settings.properties\"")));
+            properties.load(new FileInputStream(new File("E:\\PerformanceAutotesting\\settings.properties")));
         }catch (IOException e){
             e.getMessage();
         }
@@ -53,10 +52,5 @@ public class Main {
 
         public static WebDriver getDriver(){
             return driver;
-        }
-
-        public void selectNextTab(){
-            ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-            driver.switchTo().window(tabs.get(tabs.size()-1));
         }
 }
